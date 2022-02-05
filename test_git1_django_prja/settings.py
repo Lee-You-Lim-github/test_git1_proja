@@ -78,8 +78,13 @@ WSGI_APPLICATION = 'test_git1_django_prja.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        # mariadb setting
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'realtime',  # DB 이름
+        'USER': 'root',
+        'PASSWORD': '1234',
+        'HOST': 'localhost',
+        'PORT': '3306'
     }
 }
 
