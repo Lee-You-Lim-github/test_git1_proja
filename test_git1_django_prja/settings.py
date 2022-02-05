@@ -84,7 +84,7 @@ DATABASES = {
     'default': {
         # mariadb setting
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'realtime',  # DB 이름
+        'NAME': 'test_git1_proja_django',  # DB 이름
         'USER': 'root',
         'PASSWORD': '1234',
         'HOST': 'localhost',
