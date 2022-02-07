@@ -1,10 +1,11 @@
-from django.conf import settings
 from django.core.validators import RegexValidator
 from django.db import models
 
 
-class UserConfig(models.Model):
-    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+class User(models.Model):
+    user_id = models.CharField(max_length=60, db_index=True, unique=True)
+    password = models.CharField(max_length=20)
+    password2 = models.CharField(max_length=20)
     name = models.CharField(max_length=60, db_index=True)
     nickname = models.CharField(max_length=60, unique=True)
     telephone = models.CharField(max_length=12, validators=[

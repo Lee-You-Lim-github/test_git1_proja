@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     # local app
-    'accounts',
+    'booking',
+    'shop',
     'user',
 ]
 
