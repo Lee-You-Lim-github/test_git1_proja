@@ -41,9 +41,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'corsheaders',
     # local app
-    'booking',
-    'shop',
-    'user',
+    'accounts',
 ]
 
 MIDDLEWARE = [
@@ -112,6 +110,11 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'accounts.User'
+
+SIMPLE_JWT = {
+    'USER_ID_FIELD': 'user_id',
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
