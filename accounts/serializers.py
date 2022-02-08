@@ -10,6 +10,11 @@ from rest_framework_simplejwt.serializers import (
 
 User = get_user_model()
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ["user_id", "username", "nickname", "telephone", "authority"]
+
 
 class UserCreationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
