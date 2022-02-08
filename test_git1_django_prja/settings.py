@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     # local app
     'accounts',
+    'booking',
+    'shop',
 ]
 
 MIDDLEWARE = [
