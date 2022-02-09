@@ -1,3 +1,4 @@
+import re
 from typing import Dict
 
 from django.contrib.auth import get_user_model
@@ -9,6 +10,7 @@ from rest_framework_simplejwt.serializers import (
 )
 
 User = get_user_model()
+
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -24,7 +26,15 @@ class UserCreationSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
-        fields = ["user_id", "username", "password", "password2", "nickname", "telephone", "authority"]
+        fields = [
+            "user_id",
+            "username",
+            "password",
+            "password2",
+            "nickname",
+            "telephone",
+            "authority",
+        ]
 
     def validate(self, attrs):
         if attrs["password"] != attrs["password2"]:
@@ -39,7 +49,13 @@ class UserCreationSerializer(serializers.ModelSerializer):
         telephone = validated_data["telephone"]
         authority = validated_data["authority"]
 
-        new_user = User(user_id=user_id, username=username, nickname=nickname, telephone=telephone, authority=authority)
+        new_user = User(
+            user_id=user_id,
+            username=username,
+            nickname=nickname,
+            telephone=telephone,
+            authority=authority,
+        )
         new_user.set_password(password)
         new_user.save()
 
