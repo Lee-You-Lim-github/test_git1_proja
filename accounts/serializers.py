@@ -1,3 +1,4 @@
+import re
 from typing import Dict
 
 from django.contrib.auth import get_user_model
@@ -30,6 +31,8 @@ class UserCreationSerializer(serializers.ModelSerializer):
         if attrs["password"] != attrs["password2"]:
             raise serializers.ValidationError("Difference between passwords")
         return attrs
+
+
 
     def create(self, validated_data):
         user_id = validated_data["user_id"]

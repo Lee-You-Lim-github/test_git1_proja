@@ -45,7 +45,7 @@ class User(AbstractUser):
 
     user_id = models.CharField(max_length=20, unique=True, validators=[
         MinLengthValidator(3),
-        RegexValidator(regex='^[a-zA-Z0-9]*$'),
+        RegexValidator(regex='^[ㄱ-힣]*$', message="한글만 입력해 주세요."),
     ], )
     username = models.CharField(max_length=60, db_index=True)
     nickname = models.CharField(max_length=15, unique=True)
